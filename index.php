@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rate My Program - Review Graduate Programs Nationwide</title>
+	<title>Rate My Program - Review College Programs Nationwide</title>
 	<style>
 		nav {
 			background-color: black;
@@ -14,9 +14,8 @@
 
 		nav ul li {
 			list-style-type: none;
-			width: 300px;
+			width:640px;
 			float: left;
-			border-right: 1px solid #CCC;
 			text-align: center;
 		}
 
@@ -32,9 +31,6 @@
 			color: green;
 		}
 
-		form{
-			float: right;
-		}
 
 		label {
 
@@ -45,10 +41,6 @@
 }
 
 		div {
-			float: middle;
-		}
-
-		div input {
 
 		}
 	</style>
@@ -56,23 +48,67 @@
 </head>
 
 <body>
-	<br>
-
 	<?php include 'header.php'; ?>
 <br>
 <br>
-<nav>
-	<ul>
-		<li><a href="#">Profile</a></li>
-		<li><a href="#">About Us</a></li>
+<br>
+<h1><center>Find Your Program</center></h1>
+<br>
+<center><div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> Undergraduate
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Graduate
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> Doctorate
+  </label>
+</div>
+
+<br>
+<br>
+
+
+<nav class="navbar navbar-light bg-light d-flex justify-content-center">
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
 </nav>
+
+</center>
+
 <br>
-<br>
-<h1><center>Find my Graduate Program</center></h1>
-<button type="button" class="btn btn-primary btn-lg btn-block">Graduate Program</button>
-<br>
-<h1><center>Find my College/University</center></h1>
-<button type="button" class="btn btn-primary btn-lg btn-block">College/University</button>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+			<a href="https://grid.cs.gsu.edu/~grad/">
+		</li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="gsupic.gif" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
