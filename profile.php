@@ -8,11 +8,48 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/profile.css">
-    <title>Profile!</title>
+    <title> Profile! </title>
   </head>
+
+
   <body>
-    <h1>My profile,</h1>
-    <div class="row">
+
+    <?php include 'header.php'; ?>
+    <hr>
+
+    <div id="wrapper" class="active">
+
+      <!-- Sidebar -->
+            <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <nav class="nav flex-column nav-tabs sidebar-nav" id="sidebar" role="tablist">
+          <a class="nav-link active" data-toggle="tab" aria-controls="profile" aria-selected="true" href="#profile" id="profile-tab"> Profile</a>
+          <a class="nav-link" data-toggle="tab" aria-controls="saved" aria-selected="false" href="#saved" id="save-tab">Saved</a>
+          <a class="nav-link" data-toggle="tab" aria-controls="review" aria-selected="false" href="#review" id="review-tab">Reviews</a>
+          <a class="nav-link" data-toggle="tab" aria-controls="post" aria-selected="false" href="#post" id="post-tab">Posts</a>
+        </nav>
+      </div>
+
+      <!-- Page content -->
+      <div id="page-content-wrapper">
+        <!-- Keep all page content within the page-content inset div! -->
+        <div class="page-content inset">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="tab-content">
+                  <div class="tab-pane" id="saved" role="tabpanel" aria-labelledby="save-tab"> <?php include 'saveprogramtab.php'; ?> </div>
+                  <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <?php include 'profileinfo.php'; ?></div>
+                  <div class="tab-pane" id="post" role="tabpanel" aria-labelledby="post-tab"></ <?php include 'userposttab.php'; ?>div>
+                  <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab"> <?php include 'userreviewtab.php'; ?></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!--div class="row">
       <div class="col-md-2 navigation-bar">
         <nav class="nav flex-column nav-tabs" id="myTab" role="tablist">
           <a class="nav-link active" data-toggle="tab" aria-controls="profile" aria-selected="true" href="#profile" id="profile-tab"> Profile</a>
@@ -23,13 +60,13 @@
       </div>
       <div class="col-md">
         <div class="tab-content">
-          <div class="tab-pane" id="saved" role="tabpanel" aria-labelledby="save-tab"> <?php include 'file.txt'; ?> </div>
-          <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <?php include 'file.txt'; ?></div>
-          <div class="tab-pane" id="post" role="tabpanel" aria-labelledby="post-tab"></ <?php include 'file.txt'; ?>div>
-          <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab"> <?php include 'file.txt'; ?></div>
+          <div class="tab-pane" id="saved" role="tabpanel" aria-labelledby="save-tab"> <?php //include 'file.txt'; ?> </div>
+          <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <?php //include 'profileinfo.php'; ?></div>
+          <div class="tab-pane" id="post" role="tabpanel" aria-labelledby="post-tab"></ <?php //include 'file.txt'; ?>div>
+          <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab"> <?php //include 'file.txt'; ?></div>
         </div>
       </div>
-    </div>
+    </div-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
