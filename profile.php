@@ -24,7 +24,7 @@
       <div class="col-md">
         <div class="tab-content">
           <div class="tab-pane" id="saved" role="tabpanel" aria-labelledby="save-tab"> <?php include 'file.txt'; ?> </div>
-          <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <?php include 'file.txt'; ?></div>
+          <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <?php include 'profileinfo.php'; ?></div>
           <div class="tab-pane" id="post" role="tabpanel" aria-labelledby="post-tab"></ <?php include 'file.txt'; ?>div>
           <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab"> <?php include 'file.txt'; ?></div>
         </div>
