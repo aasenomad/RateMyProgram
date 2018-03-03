@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
+
+    
+<style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box}
 
@@ -58,9 +66,7 @@ button:hover {
 .container {
     padding: 16px;
 }
-        #bbb{
-            background-color: aquamarine;
-        }
+    
 /* Clear floats */
 .clearfix::after {
     content: "";
@@ -74,11 +80,21 @@ button:hover {
        width: 100%;
     }
 }
-</style>
-    
+        
+        
 
+.bottomright {
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+    font-size: 18px;
+}
+        
+</style>
+</head>
     
- </head>
+    
+    
 
 <body>
 
@@ -89,16 +105,17 @@ button:hover {
     <hr>
 
     <form class="form-horizontal" action='' method="POST">
-  <fieldset>
+
+        
     <div id="legend">
-      <legend class="">Register</legend>
+    
     </div>
     <div class="control-group">
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
       <div class="controls">
-        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-        <p class="text-danger">*Username can contain any letters or numbers, without spaces</p>
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge" required>
+       
       </div>
     </div>
  
@@ -106,8 +123,8 @@ button:hover {
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-        <p class="text-danger">*Please provide your E-mail</p>
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" required>
+  
       </div>
     </div>
  
@@ -115,17 +132,17 @@ button:hover {
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-        <p class="text-danger">*Password should be at least 4 characters</p>
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" required>
+ 
       </div>
     </div>
  
     <div class="control-group">
       <!-- Password -->
-      <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+      <label class="control-label"  for="password_confirm">Confirm you password</label>
       <div class="controls">
-        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-        <p class="text-danger">*Please confirm password</p>
+        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge" required>
+        
       </div>
     </div>
 
@@ -133,7 +150,7 @@ button:hover {
       <!-- Position -->
       <label class="control-label"  for="Position">Position</label>
       <div class="controls">
-        <input type="text" id="position" name="position" placeholder="" class="input-xlarge">
+        <input type="text" id="position" name="position" placeholder="" class="input-xlarge" required>
         <p class="help-block"></p>
       </div>
     </div>
@@ -143,9 +160,9 @@ button:hover {
       
       <div class="control-group">
       <!-- Position -->
-      <label class="control-label"  for="School">Name of your school</label>
+      <label class="control-label"  for="School">What school did you attend?.</label>
       <div class="controls">
-        <input type="text" id="school" name="school" placeholder="" class="input-xlarge">
+        <input type="text" id="school" name="school" placeholder="" class="input-xlarge" required>
         <p class="help-block"></p>
       </div>
     </div>
@@ -158,34 +175,31 @@ button:hover {
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label class>
     
-    <p class="">By creating an account you agree to our <a href="term&privacy.html" style="color:dodgerblue">Terms & Privacy</a>.</p class>
+    <p class="">By creating an account you agree to our <a href="term&privacy.php" style="color:dodgerblue">Terms & Privacy</a>.</p class>
       
       
  
- <
+ 
     <div class="clearfix">
-      <button class type="button" class="cancelbtn">Cancel</button>
-      <button class type ="submit" class="signupbtn" href="term&privacy.html" role="button" >Sign Up</button>
-     
-          
-          
-          
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type ="submit" formaction="profile.php"class="signupbtn" role="button" >Sign Up</button>
+
           
       </div>
     </div>
-  </fieldset>
+	</div>
 </form>
 
-    
 
-      
+<?php 
+    include 'footer.php';
+?>
+<!------------------------   JS   ------->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       
     </div>
-
-</form>
-    
-  </div>
-</form>
 
 </body>
 </html>
