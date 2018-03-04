@@ -67,4 +67,39 @@ function getComments($schoolId){
     }
     return $push;
 }
+
+/*Total Number of comments*/
+function commentTotal($schoolId){
+    $count = 0;
+    $db = dbconnect();
+    $result = $db -> prepare ("SELECT comment from comments WHERE schoolId = $schoolId ");
+    $result -> execute();
+    while ($row = $result -> fetch (PDO::FETCH_ASSOC)){
+        $push[] = $row;
+        $count++;
+    }
+    return $count;
+}
+
+/*Andrew's function
+
+function storeComments($schoolId, $comment){
+    $db = dbconnect();
+    $result = $db -> prepare ("INSERT INTO comments(commentId, comment, userId, schoolId) VALUES ('', $comment, '', $schoolId)");
+    $result -> execute();
+    return $result;
+}
+*/
+
+function getUserName ($userId){
+
+    $db = dbconnect();
+    $result = $db -> prepare ("SELECT username from userinfo WHERE userID = $userId");
+    $result -> execute();
+    $push = $result -> fetch (PDO::FETCH_ASSOC);
+    return $push;
+}
+
+
+
 ?>
