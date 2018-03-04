@@ -16,6 +16,16 @@ function getProgramRate($schoolID){
     return $push;
 }
 
+function getProgramRate2($schoolID){
+    $db = dbconnect();
+    $result = $db -> prepare ("SELECT AVG(rate) as avg
+            from rating
+            WHERE schoolId = $schoolID AND rating = 1");
+    $result -> execute();
+    $row = $result -> fetch (PDO::FETCH_ASSOC);
+    return $row['avg'];
+}
+
 
 function getSchool($schoolId){
     $db = dbconnect();
