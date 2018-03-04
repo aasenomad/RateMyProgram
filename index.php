@@ -3,6 +3,14 @@
 <head>
 	<title>Rate My Program - Review College Programs Nationwide</title>
 	<style>
+	.carousel-inner > .item > a > img {
+    display: block;
+    height:auto;
+    max-width: 100%;
+    min-width: 100%;
+    line-height: 1;
+	 }
+
 		nav {
 			background-color: black;
 			height: 50px;
@@ -38,7 +46,7 @@
 
 		input {
 
-}
+		}
 
 		div {
 
@@ -47,8 +55,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
+
+
 <body>
 	<?php include 'header.php'; ?>
+
+	</div>
 <br>
 <br>
 <br>
@@ -66,6 +78,8 @@
   </label>
 </div>
 
+
+
 <br>
 <br>
 
@@ -81,23 +95,35 @@
 
 <br>
 
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-			<a href="https://grid.cs.gsu.edu/~grad/">
-		</li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="gsupic.gif" alt="First slide">
+      <img class="d-block w-100" src="FSU.png" height="250px" width="0px" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
+      <img class="d-block w-100" src="UNC.png" height="250px" width="0px" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
+      <img class="d-block w-100" src="gsupic.gif" height="250px" width="0px" alt="Third slide">
+    </div>
+		<div class="carousel-item">
+      <img class="d-block w-100" src="MiamiU.jpg" height="250px" width="0px" alt="Fourth slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="Embry-riddle.jpg" height="250px" width="0px" alt="Fifth slide">
+    </div>
+		<div class="carousel-item">
+      <img class="d-block w-100" src="georgia-tech_0.gif" height="250px" width="0px" alt="Sixth slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="duke.png" height="250px" width="0px" alt="Seventh slide">
+    </div>
+		<div class="carousel-item">
+      <img class="d-block w-100" src="georgia.png" height="250px" width="0px" alt="Eighth slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="fb-emory.gif" height="250px" width="0px" alt="Ninth slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -109,6 +135,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
