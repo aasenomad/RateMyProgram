@@ -1,2 +1,16 @@
-working?
-entered a second line
+SESSIONS
+$SESSIONS[connected]
+$SESSIONS[username]
+$SESSIONS[email]
+ $_SESSION["userid"]
+
+
+
+Details db:
+
+school type: 1 - private
+             2 - public
+
+school program 1- undergraduate
+               2 - Graduate / master
+               3 - PHD

@@ -44,10 +44,7 @@
            	<p class><a href=""</p>
                             <p class = "footer"><a href="about.php">About</a><a href="contact.php">  Contact</a></p>  
                             
-                            
-         <div class="footer-copyright py-3 text-center">
-              <div class="container-fluid">
-                  © 2017 Copyright: <a href="https://google.com"> ratemyprogram.com </a>
+        
                   
                   
                   
