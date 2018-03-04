@@ -7,11 +7,11 @@
     <div class="card-body">
       <h5 class="card-title">Basic Information </h5>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"> Username : <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#usernameModal"> Edit </span> </li>
-        <li class="list-group-item">Email :  <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#emailModal"> Edit </span></li>
+        <li class="list-group-item"> Username : <?php echo $_SESSION['username']; ?> <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#usernameModal"> Edit </span> </li>
+        <li class="list-group-item">Email :  <?php echo $_SESSION['email']; ?> <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#emailModal"> Edit </span></li>
           <li class="list-group-item">Password : ******** <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#pswModal"> Edit </span></li>
-        <li class="list-group-item"> School:  <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#schoolModal"> Edit </span></li>
-        <li class="list-group-item">Position: <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#positionModal"> Edit </span></li>
+        <li class="list-group-item"> School:  <?php echo $_SESSION['school']; ?> <span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#schoolModal"> Edit </span></li>
+        <li class="list-group-item">Position: <?php echo $_SESSION['position']; ?><span class="modal-text d-flex justify-content-sm-end"  data-toggle="modal" data-target="#positionModal"> Edit </span></li>
         <!--li class="list-group-item">Vestibulum at eros</li-->
       </ul>
     </div>
