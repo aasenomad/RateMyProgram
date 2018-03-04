@@ -16,8 +16,10 @@ if( isset($_POST['submission']) ){
             header:'profile.php';
         }
     }
-    
+
 }
+
+ include 'header.php';
 
 ?>
 
