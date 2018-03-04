@@ -1,5 +1,5 @@
 <?php
-
+include 'includes/function/ratings.php';
 function getProgramRate($schoolID){
     $db = dbconnect();
     $push = array();
@@ -14,6 +14,16 @@ function getProgramRate($schoolID){
         $push[] = $row;
     }
     return $push;
+}
+
+function getProgramRate2($schoolID){
+    $db = dbconnect();
+    $result = $db -> prepare ("SELECT AVG(rate) as avg
+            from rating
+            WHERE schoolId = $schoolID AND rating = 1");
+    $result -> execute();
+    $row = $result -> fetch (PDO::FETCH_ASSOC);
+    return $row['avg'];
 }
 
 
