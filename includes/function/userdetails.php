@@ -28,8 +28,8 @@
     $result->execute();
     $row = $result->fetch(PDO::FETCH_ASSOC);
     return $row;
- }
 
+<<<<<<< HEAD
  function review($comment, $school){
      $db = dbconnect();
      $query = "INSERT INTO comments(comment ,userId,	schoolId) values(?,?,?)";
@@ -54,4 +54,18 @@ $rate(4,$_POST['option4'],$schoolId);
 $rate(5,$_POST['option5'],$schoolId);
 $rate(6,$_POST['option6'],$schoolId);
  */
+=======
+ }
+ function getSave($user){
+    $db = dbconnect();
+    $push = array();
+    $user = "SELECT * FROM savedprogram WHERE userID = '".$user"' ";
+    $result = $db->prepare($user);
+    $result->execute();
+    while ($row = $result -> fetch (PDO::FETCH_ASSOC)){
+        $push[] = $row;
+    }
+    return $push;
+  }
+>>>>>>> origin/master
  ?>
