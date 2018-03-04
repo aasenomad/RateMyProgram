@@ -1,3 +1,4 @@
+
 <?php
 include 'includes/function/userdetails.php';
 
@@ -59,8 +60,5 @@ if ( isset($_SESSION["connected"]) && $_SESSION["connected"]== true){
 }
 ?>
 <br>
-
-
-
 
 </header>
