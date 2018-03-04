@@ -1,11 +1,23 @@
+<?php
+session_start();
+include 'includes/dbconnect.php';
+include 'includes/function/ratings.php';
+if(isset($_GET['sid'])){
+    $idschool = $_GET['sid'];
+}else{
+    $idschool = 1;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
       <!-- Bootstrap meta tags -->
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <!---->
-<!---bootstrap-->
+
+    <!---bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--Ratings Results Head Tag----------->
@@ -16,21 +28,28 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <!---------->
-    <link rel="stylesheet" href="profile.css">
-
     <title>Ratings Page</title>
   </head>
 <body>
+
+<?php include 'header.php'; ?>
+<br>
+
 <div class="container">
 <!--program identier-->
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">Program Name</li>
-  <li class="list-group-item">Degree</li>
-  <li class="list-group-item">Location</li>
-  <li class="list-group-item">Program Type</li>
-  <li class="list-group-item"><a href="url">Program Webpage</a></li>
-</ul>
+<?php
+    $prog = getSchool($idschool);
+    echo '
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Program Name: '.$prog['nom'].'</li>
+      <li class="list-group-item">Degree:   '.getProgram($prog['program']).'</li>
+      <li class="list-group-item">Location: '.getState($prog['State']).'</li>
+      <li class="list-group-item">Program Type: '.$prog['type'].'</li>
+      <li class="list-group-item"><a href="'.$prog['website'].'" target=”_blank”>Visit Website</a></li>
+    </ul>
+    ';
+?>
+
 
 <br><br>
 <!---->
@@ -46,7 +65,6 @@
       <h4 class="display-4"></h4>
     <p class="lead">
 
-
         <!--Ratings Results BEGIN----------->
         <table class="table table-striped">
   <thead>
@@ -56,42 +74,35 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Overall Program rating</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">Difficulty</th>
-      <td>Jacob</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
+
+
+
+        <?php
+
+    $averageRates = getProgramRate($idschool);
+
+    foreach ($averageRates as $rateinfo){
+
+        echo '
+            <tr>
+          <td>'.$rateinfo['value'].' </td>
+          <td>'.$rateinfo['avg'].'</td>
+          </tr>
+          ';
+        }
+
+        ?>
+
+
+
   </tbody>
 </table>
         <!---Ratings Results END--->
+
     </p>
   </div>
 </div>
 <br>
-
 
 
 <!--nav bar-->
@@ -101,7 +112,7 @@
 <br>
 
 
-<!--Comments Section--
+<!--Comments Section-->
 
 <div class="container">
             <div class="row">
