@@ -1,5 +1,5 @@
 <?php
-
+include 'includes/function/ratings.php';
 function getProgramRate($schoolID){
     $db = dbconnect();
     $push = array();
