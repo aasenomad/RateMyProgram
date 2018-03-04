@@ -1,3 +1,9 @@
+<?php
+session_start();
+include 'includes/dbconnect.php';
+//if( !isset($_SESSION['connected']) || $_SESSION['connected'] != true){ header("location: index.php"); }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,7 +13,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/main.css">
     <title> Profile! </title>
   </head>
 
@@ -15,7 +23,6 @@
   <body>
 
     <?php include 'header.php'; ?>
-    <hr>
 
     <div id="wrapper" class="active">
 

@@ -1,61 +1,112 @@
 <!DOCTYPE html>
-</html>
-<head>
-<title>Ratings Page</title>
-  <meta charset="UTF-8">
-</head>
-
+<html lang="en">
+  <head>
+      <!-- Bootstrap meta tags -->
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!---->
+<!---bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!----->
+    <title>Ratings Page</title>
+  </head>
 <body>
+<div class="container">
+<!--program identier-->
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">Program Name</li>
+  <li class="list-group-item">Degree</li>
+  <li class="list-group-item">Location</li>
+  <li class="list-group-item">Program Type</li>
+</ul>
+
+<br><br>
+<!---->
+
+<!--nav bar-->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Share your thoughts about the Program!</a>
+</nav>
+
+<!--Do/Don't Instruction-->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+      <h4 class="display-4">Do's and Dont's</h4>
+    <p class="lead">
+        <strong>Don't</strong>
+         Use profanity, name-calling, derogatory terms, definitive language, (e.g., "always","never","etc.").
+        <br>
+        <strong>Do</strong>
+        Be honest
+        <br>
+        <strong>Do</strong>
+        Double check your comments before posting. It doesn’t hurt to check grammar
+    </p>
+    <!---bootstrap form-->
+    <form>
+    <div class="form-group">
+      <label for="ProsConsTextarea">Pros and Cons</label>
+      <textarea class="form-control" id="ProsConsTextarea" rows="5"
+        ></textarea>
+    </div>
+    </form>
+    <!---->
+  </div>
+</div>
+
+<br>
 
 
-<h3>Rate the Program!</h3>
+
+
+<!---star rating section of page BEGINS-->
+
+<!--nav bar-->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">Rate the Program!</a>
+</nav>
+<!--Rating Description-->
 
 <p>Overall Program Rating</p>
-<p>Level of Difficulty</p>
-<p>Academic Quality</p>
-<p>Research Opportunities</p>
-<p>Location</p>
-<p>Atmosphere (Respectful, Friendly, Fun People)</p>
 
 <!--Star Rating -------------- -->
-<form>
-    <span class="star-cb-group">
-      <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" /><label for="rating-0">0</label>
-      <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1">1</label>
-      <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2">2</label>
-      <input type="radio" id="rating-3" name="rating" value="3" /><label for="rating-3">3</label>
-      <input type="radio" id="rating-4" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
-     <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5">5</label>
-    </span>
-</form>
-<!- -------------- -->
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" checked> 1
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> 2
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> 3
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option4" autocomplete="off"> 4
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option5" autocomplete="off"> 5
+  </label>
+</div>
 
 
-<h3>Share your thoughts!</h3>
-<!--Do/Don't Instruction-->
-
-<ul><strong>Don't</strong>
-<li> Use profanity, name-calling, derogatory terms, definitive language, (e.g., "always","never","etc.").</li>
-</ul>
-<ul> <strong>Do</strong>
-<li>Be honest</li>
-<li>Double check your comments before posting. It doesn’t hurt to check grammar</li>
-</ul>
-<!--Do/Don't Instruction-->
+<!---star rating section of page ENDS -->
 
 
-
-
-<form action="/action_page.php">
-Pros: <input type="text" name="Pros" value="I loved.."><br>
-Cons: <input type="text" name="Cons" value="I did not like.. "><br>
+<!----submit button-->
 <br><br><br>
 <input type="submit" value="Submit">
-</form>
+<!----->
+
 
 <br><br><br>
 
 
+<!--bootstrap-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--bootstrap-->
 
+</div>
 </body>
 </html>
