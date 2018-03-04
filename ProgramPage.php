@@ -70,7 +70,7 @@ if(isset($_GET['sid'])){
   <thead>
     <tr>
       <th scope="col">Category</th>
-      <th scope="col">Rating</th>
+      <th scope="col">Average Rating</th>
     </tr>
   </thead>
   <tbody>
@@ -97,17 +97,18 @@ if(isset($_GET['sid'])){
 <br>
 
 
+
 <!--nav bar-->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Comment Forum ('# of comments')</a>
+  <a class="navbar-brand" href="#">User Comments [<?php echo(commentTotal($idschool));?>]</a>
 </nav>
 <br>
-
 
 <!--Comments Section-->
 <?php
 $words = getComments($idschool);
 foreach ($words as $any) {
+$commenterName = getUserName(($any['userId']));
 echo'
 <div class="container">
             <div class="row">
@@ -116,9 +117,9 @@ echo'
                    <div class="comments-list">
                        <div class="media">
                             <div class="media-body">
-                              <h4 class="media-heading user_name">'.$any['userId'].'</h4>
+                              <h4 class="media-heading user_name">'.$commenterName['username'].'</h4>
                               '.$any['comment'].'
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small>
+                              <p><small><a href="">Likes</a> - <a href="">Flag</a></small>
                             </div>
                           </div>
                    </div>

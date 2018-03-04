@@ -18,6 +18,8 @@ if( isset($_POST['submission']) ){
 
 }
 
+ include 'header.php';
+
 ?>
 
 <!DOCTYPE html>

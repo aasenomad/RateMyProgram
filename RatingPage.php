@@ -1,3 +1,15 @@
+<?php
+session_start();
+include 'includes/dbconnect.php';
+include 'includes/function/ratings.php';
+if(isset($_GET['sid'])){
+    $idschool = $_GET['sid'];
+}else{
+    $idschool = 1;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,14 +23,25 @@
     <title>Ratings Page</title>
   </head>
 <body>
+
+<?php include 'header.php'; ?>
+<br>
+
 <div class="container">
 <!--program identier-->
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">Program Name</li>
-  <li class="list-group-item">Degree</li>
-  <li class="list-group-item">Location</li>
-  <li class="list-group-item">Program Type</li>
-</ul>
+<?php
+    $prog = getSchool($idschool);
+    echo '
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Program Name: '.$prog['nom'].'</li>
+      <li class="list-group-item">Degree:   '.getProgram($prog['program']).'</li>
+      <li class="list-group-item">Location: '.getState($prog['State']).'</li>
+      <li class="list-group-item">Program Type: '.$prog['type'].'</li>
+      <li class="list-group-item"><a href="'.$prog['website'].'" target=”_blank”>Visit Website</a></li>
+    </ul>
+    ';
+?>
+
 
 <br><br>
 <!---->
@@ -43,11 +66,12 @@
         Double check your comments before posting. It doesn’t hurt to check grammar
     </p>
     <!---bootstrap form-->
-    <form>
+
+
+    <form action="ratings.php" method="post">
     <div class="form-group">
-      <label for="ProsConsTextarea">Pros and Cons</label>
-      <textarea class="form-control" id="ProsConsTextarea" rows="5"
-        ></textarea>
+      <label for="ProsConsTextarea">Pros and Cons</label><br>
+      <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
     </div>
     </form>
     <!---->
@@ -55,9 +79,6 @@
 </div>
 
 <br>
-
-
-
 
 <!---star rating section of page BEGINS-->
 
@@ -69,7 +90,7 @@
 
 <p>Overall Program Rating</p>
 
-<!--Star Rating -------------- -->
+<!--Star Rating  -->
 <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
     <input type="radio" name="options" id="option1" autocomplete="off" checked> 1
@@ -92,13 +113,18 @@
 <!---star rating section of page ENDS -->
 
 
-<!----submit button-->
+<!--submit button-->
 <br><br><br>
 <input type="submit" value="Submit">
 <!----->
 
-
 <br><br><br>
+
+<!--Database storage upon submission-->
+
+
+
+
 
 
 <!--bootstrap-->
