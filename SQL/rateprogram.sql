@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 03 mars 2018 à 08:44
+-- Généré le :  Dim 04 mars 2018 à 12:36
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -46,6 +46,19 @@ CREATE TABLE `comments` (
   `userId` int(11) NOT NULL,
   `schoolId` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `comments`
+--
+
+INSERT INTO `comments` (`commentId`, `comment`, `userId`, `schoolId`) VALUES
+(1, 'The research is excellent, the culture is enthusiastic and the teaching is fantastic!', 1, 1),
+(2, 'Had a terrible experience here. Would not recommend. ', 2, 1),
+(3, 'Would do it all over again. Loved it here!', 3, 1),
+(4, 'Great time!', 3, 3),
+(5, 'Not the best. ', 1, 1),
+(6, 'The best place on earth!', 1, 1),
+(7, 'I hate this program. ', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -101,9 +114,35 @@ INSERT INTO `rateinfo` (`rateId`, `value`) VALUES
 
 CREATE TABLE `rating` (
   `ratingId` int(11) NOT NULL,
+  `rateId` int(11) NOT NULL,
   `schoolId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `rate` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `rating`
+--
+
+INSERT INTO `rating` (`ratingId`, `rateId`, `schoolId`, `userId`, `rate`) VALUES
+(2, 1, 1, 1, 4),
+(3, 1, 1, 2, 3),
+(4, 2, 2, 3, 2),
+(5, 2, 2, 3, 5),
+(6, 3, 1, 4, 4),
+(7, 4, 1, 3, 5),
+(8, 6, 1, 4, 4),
+(9, 6, 1, 5, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `savedprogram`
+--
+
+CREATE TABLE `savedprogram` (
+  `userId` int(11) NOT NULL,
+  `schoolId` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -114,15 +153,69 @@ CREATE TABLE `rating` (
 
 CREATE TABLE `school` (
   `schoolId` int(11) NOT NULL,
-  `nom` int(11) NOT NULL,
-  `Degree` int(11) NOT NULL,
+  `nom` text NOT NULL,
+  `Degree` text NOT NULL,
   `program` int(11) NOT NULL,
   `City` int(11) DEFAULT NULL,
   `State` int(11) NOT NULL,
-  `type` text NOT NULL,
+  `type` int(11) NOT NULL,
   `website` text,
   `contact` varchar(25) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `school`
+--
+
+INSERT INTO `school` (`schoolId`, `nom`, `Degree`, `program`, `City`, `State`, `type`, `website`, `contact`) VALUES
+(1, 'Georgia State University', 'Bachelor\'s of Science in Computer Science', 1, NULL, 1, 2, 'http://cs.gsu.edu/', NULL),
+(4, 'University of North Carolina', 'Bachelor of Science in Computer Science', 1, NULL, 3, 2, NULL, NULL),
+(2, 'Florida State University', 'Master\'s of Science in Computer Science', 2, NULL, 2, 2, 'http://www.cs.fsu.edu/academics/graduate-programs/ms-in-computer-science/', NULL),
+(3, 'University of Miami', 'Doctor of Philosophy in Computer Science', 3, NULL, 2, 1, NULL, NULL),
+(5, 'Duke University', 'Doctor of Philosophy in Computer Science', 3, NULL, 3, 1, NULL, NULL),
+(6, 'Georgia Institute of Technology', 'Master\'s of Science in Computer Science', 2, NULL, 1, 2, NULL, NULL),
+(7, 'Emory University', 'Master\'s of Science in Computer Science', 2, NULL, 3, 1, NULL, NULL),
+(8, 'Embry-Riddle Aeronautic University', 'Bachelor\'s of Science in Computer Science', 1, NULL, 2, 1, NULL, NULL),
+(9, 'University of Georgia', 'Doctor of Philosophy in Computer Science', 3, NULL, 1, 2, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `schoolprogram`
+--
+
+CREATE TABLE `schoolprogram` (
+  `programId` int(11) NOT NULL,
+  `name` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `schoolprogram`
+--
+
+INSERT INTO `schoolprogram` (`programId`, `name`) VALUES
+(1, 'Undergraduate'),
+(2, 'Master'),
+(3, 'PhD');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `schooltype`
+--
+
+CREATE TABLE `schooltype` (
+  `typeId` int(11) NOT NULL,
+  `name` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `schooltype`
+--
+
+INSERT INTO `schooltype` (`typeId`, `name`) VALUES
+(1, 'Public'),
+(2, 'Private');
 
 -- --------------------------------------------------------
 
@@ -145,8 +238,17 @@ CREATE TABLE `useraccount` (
   `iden` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `UserId` int(11) NOT NULL
+  `UserId` varchar(50) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `useraccount`
+--
+
+INSERT INTO `useraccount` (`iden`, `email`, `password`, `UserId`) VALUES
+(1, 'nana@gmail.com', 'nana', '456teyh78'),
+(2, 'jiji@gmail.com', 'jiji', 'fJn4KpFJS1'),
+(5, 'jiji@gmail.com', 'jiji', '7Sx8GwzHJs');
 
 -- --------------------------------------------------------
 
@@ -155,11 +257,20 @@ CREATE TABLE `useraccount` (
 --
 
 CREATE TABLE `userinfo` (
-  `userID` int(11) NOT NULL,
+  `userID` varchar(50) NOT NULL,
   `username` text NOT NULL,
   `school` text,
   `position` text
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `userinfo`
+--
+
+INSERT INTO `userinfo` (`userID`, `username`, `school`, `position`) VALUES
+('456teyh78', 'nana', 'GSU', 'ALumni'),
+('fJn4KpFJS1', 'JiJi', 'FSU', 'student'),
+('7Sx8GwzHJs', 'JiJi', '', 'FSU');
 
 --
 -- Index pour les tables déchargées
@@ -202,6 +313,18 @@ ALTER TABLE `school`
   ADD PRIMARY KEY (`schoolId`);
 
 --
+-- Index pour la table `schoolprogram`
+--
+ALTER TABLE `schoolprogram`
+  ADD PRIMARY KEY (`programId`);
+
+--
+-- Index pour la table `schooltype`
+--
+ALTER TABLE `schooltype`
+  ADD PRIMARY KEY (`typeId`);
+
+--
 -- Index pour la table `states`
 --
 ALTER TABLE `states`
@@ -233,7 +356,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `commentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `flags`
 --
@@ -248,12 +371,22 @@ ALTER TABLE `rateinfo`
 -- AUTO_INCREMENT pour la table `rating`
 --
 ALTER TABLE `rating`
-  MODIFY `ratingId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ratingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `school`
 --
 ALTER TABLE `school`
-  MODIFY `schoolId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `schoolId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT pour la table `schoolprogram`
+--
+ALTER TABLE `schoolprogram`
+  MODIFY `programId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `schooltype`
+--
+ALTER TABLE `schooltype`
+  MODIFY `typeId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `states`
 --
@@ -263,7 +396,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT pour la table `useraccount`
 --
 ALTER TABLE `useraccount`
-  MODIFY `iden` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `iden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

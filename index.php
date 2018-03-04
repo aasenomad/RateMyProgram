@@ -22,35 +22,36 @@ session_start();
 
 <br>
 
-
+<div class="container">
+	<div class="d-flex justify-content-center">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="img/FSU.png" height="250px" width="0px" alt="First slide">
+      <img class="d-block w-100" src="img/FSU.png" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/UNC.png" height="250px" width="0px" alt="Second slide">
+      <img class="d-block w-100" src="img/UNC.png" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/gsupic.gif" height="250px" width="0px" alt="Third slide">
+      <img class="d-block w-100" src="img/gsupic.gif"  alt="Third slide">
     </div>
 		<div class="carousel-item">
-      <img class="d-block w-100" src="img/MiamiU.jpg" height="250px" width="0px" alt="Fourth slide">
+      <img class="d-block w-100" src="img/MiamiU.jpg" alt="Fourth slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/Embry-riddle.jpg" height="250px" width="0px" alt="Fifth slide">
+      <img class="d-block w-100" src="img/Embry-riddle.jpg"  alt="Fifth slide">
     </div>
 		<div class="carousel-item">
-      <img class="d-block w-100" src="img/georgia-tech_0.gif" height="250px" width="0px" alt="Sixth slide">
+      <img class="d-block w-100" src="img/georgia-tech_0.gif"  alt="Sixth slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/duke.png" height="250px" width="0px" alt="Seventh slide">
+      <img class="d-block w-100" src="img/duke.png" alt="Seventh slide">
     </div>
 		<div class="carousel-item">
-      <img class="d-block w-100" src="img/georgia.png" height="250px" width="0px" alt="Eighth slide">
+      <img class="d-block w-100" src="img/georgia.png"  alt="Eighth slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/fb-emory.gif" height="250px" width="0px" alt="Ninth slide">
+      <img class="d-block w-100" src="img/fb-emory.gif"  alt="Ninth slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -62,7 +63,8 @@ session_start();
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+</div>
+</div>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
