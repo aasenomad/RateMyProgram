@@ -30,4 +30,28 @@
     return $row;
  }
 
+ function review($comment, $school){
+     $db = dbconnect();
+     $query = "INSERT INTO comments(comment ,userId,	schoolId) values(?,?,?)";
+     $sql1 = $db -> prepare($query);
+     $sql1 -> execute(array($comment,   $_SESSION["userid"], $school));
+
+ }
+
+ function rate($rateId,$rate, $school){
+     $db = dbconnect();
+     $query = "INSERT INTO rating(rateId,schoolId,userId,rate) values(?,?,?)";
+     $sql1 = $db -> prepare($query);
+     $sql1 -> execute(array($rateId, $school, $_SESSION["userid"], $rate));
+
+ }
+/*
+$review($_POST['review'],$schoolId);
+$rate(1,$_POST['option1'],$schoolId);
+$rate(2,$_POST['option2'],$schoolId);
+$rate(3,$_POST['option3'],$schoolId);
+$rate(4,$_POST['option4'],$schoolId);
+$rate(5,$_POST['option5'],$schoolId);
+$rate(6,$_POST['option6'],$schoolId);
+ */
  ?>
