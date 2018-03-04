@@ -1,11 +1,23 @@
+<?php
+session_start();
+include 'includes/dbconnect.php';
+include 'includes/function/ratings.php';
+if(isset($_GET['sid'])){
+    $idschool = $_GET['sid'];
+}else{
+    $idschool = 1;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
       <!-- Bootstrap meta tags -->
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <!---->
-<!---bootstrap-->
+
+    <!---bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--Ratings Results Head Tag----------->
@@ -16,21 +28,28 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <!---------->
-    <link rel="stylesheet" href="profile.css">
-
     <title>Ratings Page</title>
   </head>
 <body>
+
+<?php include 'header.php'; ?>
+<br>
+
 <div class="container">
 <!--program identier-->
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">Program Name</li>
-  <li class="list-group-item">Degree</li>
-  <li class="list-group-item">Location</li>
-  <li class="list-group-item">Program Type</li>
-  <li class="list-group-item"><a href="url">Program Webpage</a></li>
-</ul>
+<?php
+    $prog = getSchool($idschool);
+    echo '
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Program Name: '.$prog['nom'].'</li>
+      <li class="list-group-item">Degree:   '.getProgram($prog['program']).'</li>
+      <li class="list-group-item">Location: '.getState($prog['State']).'</li>
+      <li class="list-group-item">Program Type: '.$prog['type'].'</li>
+      <li class="list-group-item"><a href="'.$prog['website'].'" target=”_blank”>Visit Website</a></li>
+    </ul>
+    ';
+?>
+
 
 <br><br>
 <!---->
@@ -46,47 +65,32 @@
       <h4 class="display-4"></h4>
     <p class="lead">
 
-
         <!--Ratings Results BEGIN----------->
         <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Category</th>
-      <th scope="col">Rating</th>
+      <th scope="col">Average Rating</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Overall Program rating</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">Difficulty</th>
-      <td>Jacob</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-    </tr>
+
+        <?php
+    $averageRates = getProgramRate($idschool);
+    foreach ($averageRates as $rateinfo){
+        echo '
+          <tr>
+          <td>'.$rateinfo['value'].' </td>
+          <td>'.$rateinfo['avg'].'</td>
+          </tr>
+          ';
+    }
+        ?>
+
   </tbody>
 </table>
         <!---Ratings Results END--->
+
     </p>
   </div>
 </div>
@@ -96,67 +100,35 @@
 
 <!--nav bar-->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Comment Forum (45)</a>
+  <a class="navbar-brand" href="#">User Comments [<?php echo(commentTotal($idschool));?>]</a>
 </nav>
 <br>
 
-
-<!--Comments Section--
-
+<!--Comments Section-->
+<?php
+$words = getComments($idschool);
+foreach ($words as $any) {
+$commenterName = getUserName(($any['userId']));
+echo'
 <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                  <div class="page-header">
-
-                  </div>
+                  <div class="page-header"></div>
                    <div class="comments-list">
                        <div class="media">
-                           <p class="pull-right"><small>2 days ago  </small></p>
                             <div class="media-body">
-
-                              <h4 class="media-heading user_name">Thomas Shoemak</h4>
-                              Wow! this is really great.
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
-                            </div>
-                          </div>
-                       <div class="media">
-                           <p class="pull-right"><small>5 days ago</small></p>
-                            <div class="media-body">
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Fantastic Program!
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
-                            </div>
-                          </div>
-                       <div class="media">
-                           <p class="pull-right"><small>15 days ago</small></p>
-                            <div class="media-body">
-
-                              <h4 class="media-heading user_name">Diego Shanter</h4>
-                              Not pleased. Could have learned more someplace else.
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
-                            </div>
-                          </div>
-                       <div class="media">
-                           <p class="pull-right"><small>34 days ago</small></p>
-                            <div class="media-body">
-
-                              <h4 class="media-heading user_name">Bassent Malak</h4>
-                              Terrible experience. Not recommended.
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
+                              <h4 class="media-heading user_name">'.$commenterName['username'].'</h4>
+                              '.$any['comment'].'
+                              <p><small><a href="">Likes</a> - <a href="">Flag</a></small>
                             </div>
                           </div>
                    </div>
-
-
-
                 </div>
             </div>
         </div>
-
+        ';
+}
+?>
 <!---COMMENTS END--->
 
 

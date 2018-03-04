@@ -28,6 +28,17 @@
     $result->execute();
     $row = $result->fetch(PDO::FETCH_ASSOC);
     return $row;
- }
 
+ }
+ function getSave($user){
+    $db = dbconnect();
+    $push = array();
+    $user = "SELECT * FROM savedprogram WHERE userID = '".$user"' ";
+    $result = $db->prepare($user);
+    $result->execute();
+    while ($row = $result -> fetch (PDO::FETCH_ASSOC)){
+        $push[] = $row;
+    }
+    return $push;
+  }
  ?>

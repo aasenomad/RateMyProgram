@@ -1,3 +1,4 @@
+
 <?php
 include 'includes/function/userdetails.php';
 
@@ -22,6 +23,8 @@ if ( isset($_POST["log"])){
 <?php
 if ( isset($_SESSION["connected"]) && $_SESSION["connected"]== true){
   echo'
+  <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="index.php"> Home </a>
   <div class="d-flex justify-content-end">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,7 +35,8 @@ if ( isset($_SESSION["connected"]) && $_SESSION["connected"]== true){
         <a class="dropdown-item" href="logout.php"> Logout </a>
       </div>
     </div>
-  </div>';
+  </div>
+  </nav>';
 }else {
 ?>
 
@@ -59,8 +63,5 @@ if ( isset($_SESSION["connected"]) && $_SESSION["connected"]== true){
 }
 ?>
 <br>
-
-
-
 
 </header>
