@@ -28,19 +28,19 @@
     $result->execute();
     $row = $result->fetch(PDO::FETCH_ASSOC);
     return $row;
+}
 
-<<<<<<< HEAD
  function review($comment, $school){
      $db = dbconnect();
      $query = "INSERT INTO comments(comment ,userId,	schoolId) values(?,?,?)";
      $sql1 = $db -> prepare($query);
-     $sql1 -> execute(array($comment,   $_SESSION["userid"], $school));
+     $sql1 -> execute(array($comment,$_SESSION["userid"], $school));
 
  }
 
  function rate($rateId,$rate, $school){
      $db = dbconnect();
-     $query = "INSERT INTO rating(rateId,schoolId,userId,rate) values(?,?,?)";
+     $query = "INSERT INTO rating(rateId,schoolId,userId,rate) values(?,?,?,?)";
      $sql1 = $db -> prepare($query);
      $sql1 -> execute(array($rateId, $school, $_SESSION["userid"], $rate));
 
@@ -54,12 +54,11 @@ $rate(4,$_POST['option4'],$schoolId);
 $rate(5,$_POST['option5'],$schoolId);
 $rate(6,$_POST['option6'],$schoolId);
  */
-=======
- }
+
  function getSave($user){
     $db = dbconnect();
     $push = array();
-    $user = "SELECT * FROM savedprogram WHERE userID = '".$user"' ";
+    $user = "SELECT * FROM savedprogram WHERE userID = '".$user."' ";
     $result = $db->prepare($user);
     $result->execute();
     while ($row = $result -> fetch (PDO::FETCH_ASSOC)){
@@ -67,5 +66,5 @@ $rate(6,$_POST['option6'],$schoolId);
     }
     return $push;
   }
->>>>>>> origin/master
+
  ?>

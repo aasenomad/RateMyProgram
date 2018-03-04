@@ -1,6 +1,6 @@
 
 <?php
-include 'includes/function/userdetails.php';
+include_once 'includes/function/userdetails.php';
 
 if ( isset($_POST["log"])){
   $log = login($_POST["email"],$_POST["pwd"]);

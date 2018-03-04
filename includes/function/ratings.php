@@ -1,5 +1,5 @@
 <?php
-include 'includes/function/ratings.php';
+
 function getProgramRate($schoolID){
     $db = dbconnect();
     $push = array();
@@ -70,6 +70,7 @@ function getState($stateId){
 
 function getComments($schoolId){
     $db = dbconnect();
+    $push = array();
     $result = $db -> prepare ("SELECT * from comments WHERE schoolId = $schoolId ");
     $result -> execute();
     while ($row = $result -> fetch (PDO::FETCH_ASSOC)){
@@ -81,6 +82,7 @@ function getComments($schoolId){
 /*Total Number of comments*/
 function commentTotal($schoolId){
     $count = 0;
+    $push = array();
     $db = dbconnect();
     $result = $db -> prepare ("SELECT comment from comments WHERE schoolId = $schoolId ");
     $result -> execute();

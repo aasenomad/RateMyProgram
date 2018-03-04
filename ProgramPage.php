@@ -100,7 +100,7 @@ if(isset($_GET['sid'])){
 
 <!--nav bar-->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">User Comments [<?php echo(commentTotal($idschool));?>]</a>
+  <p> User Comments [<?php echo(commentTotal($idschool));?>] - <a class="btn" type="button" href="RatingPage.php?program=<?php echo $idschool; ?>"> Make a review</a></p>
 </nav>
 <br>
 
