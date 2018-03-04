@@ -78,19 +78,15 @@ if(isset($_GET['sid'])){
 
 
         <?php
-
     $averageRates = getProgramRate($idschool);
-
     foreach ($averageRates as $rateinfo){
-
         echo '
-            <tr>
+          <tr>
           <td>'.$rateinfo['value'].' </td>
           <td>'.$rateinfo['avg'].'</td>
           </tr>
           ';
-        }
-
+    }
         ?>
 
 
@@ -107,67 +103,28 @@ if(isset($_GET['sid'])){
 
 <!--nav bar-->
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Comment Forum (45)</a>
+  <a class="navbar-brand" href="#">Comment Forum ('# of comments')</a>
 </nav>
 <br>
 
 
 <!--Comments Section-->
-
 <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                  <div class="page-header">
-
-                  </div>
+                  <div class="page-header"></div>
                    <div class="comments-list">
                        <div class="media">
-                           <p class="pull-right"><small>2 days ago  </small></p>
                             <div class="media-body">
-
                               <h4 class="media-heading user_name">Thomas Shoemak</h4>
-                              Wow! this is really great.
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
-                            </div>
-                          </div>
-                       <div class="media">
-                           <p class="pull-right"><small>5 days ago</small></p>
-                            <div class="media-body">
-                              <h4 class="media-heading user_name">Baltej Singh</h4>
-                              Fantastic Program!
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
-                            </div>
-                          </div>
-                       <div class="media">
-                           <p class="pull-right"><small>15 days ago</small></p>
-                            <div class="media-body">
-
-                              <h4 class="media-heading user_name">Diego Shanter</h4>
-                              Not pleased. Could have learned more someplace else.
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
-                            </div>
-                          </div>
-                       <div class="media">
-                           <p class="pull-right"><small>34 days ago</small></p>
-                            <div class="media-body">
-
-                              <h4 class="media-heading user_name">Bassent Malak</h4>
-                              Terrible experience. Not recommended.
-
-                              <p><small><a href="">Like</a> - <a href="">Flag</a></small></p>
+                              text
+                              <p><small><a href="">Like</a> - <a href="">Flag</a></small>
                             </div>
                           </div>
                    </div>
-
-
-
                 </div>
             </div>
         </div>
-
 <!---COMMENTS END--->
 
 
