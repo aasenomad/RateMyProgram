@@ -75,8 +75,6 @@ if(isset($_GET['sid'])){
   </thead>
   <tbody>
 
-
-
         <?php
     $averageRates = getProgramRate($idschool);
     foreach ($averageRates as $rateinfo){
@@ -88,8 +86,6 @@ if(isset($_GET['sid'])){
           ';
     }
         ?>
-
-
 
   </tbody>
 </table>
@@ -109,6 +105,10 @@ if(isset($_GET['sid'])){
 
 
 <!--Comments Section-->
+<?php
+$words = getComments($idschool);
+foreach ($words as $any) {
+echo'
 <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -116,8 +116,8 @@ if(isset($_GET['sid'])){
                    <div class="comments-list">
                        <div class="media">
                             <div class="media-body">
-                              <h4 class="media-heading user_name">Thomas Shoemak</h4>
-                              text
+                              <h4 class="media-heading user_name">'.$any['userId'].'</h4>
+                              '.$any['comment'].'
                               <p><small><a href="">Like</a> - <a href="">Flag</a></small>
                             </div>
                           </div>
@@ -125,6 +125,9 @@ if(isset($_GET['sid'])){
                 </div>
             </div>
         </div>
+        ';
+}
+?>
 <!---COMMENTS END--->
 
 

@@ -58,19 +58,13 @@ function getState($stateId){
 }
 */
 
-/* DELETE THIS SOON
-function getRatingAverage($schoolId){
-        $db = dbconnect();
-        $push = array();
-        $result = $db -> prepare ("SELECT AVG(rate) as avg, value
-                from rating JOIN rateinfo
-                ON rating.rateId = rateinfo.rateId
-                WHERE schoolId = $schoolID
-                GROUP BY rating.rateId");
-        $result -> execute();
-        $push = $result -> fetch (PDO::FETCH_ASSOC)
-        return $push;
+function getComments($schoolId){
+    $db = dbconnect();
+    $result = $db -> prepare ("SELECT * from comments WHERE schoolId = $schoolId ");
+    $result -> execute();
+    while ($row = $result -> fetch (PDO::FETCH_ASSOC)){
+        $push[] = $row;
+    }
+    return $push;
 }
-*/
-
 ?>
